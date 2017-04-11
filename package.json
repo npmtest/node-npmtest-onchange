@@ -1,1 +1,40 @@
-{     "devDependencies": {         "onchange": "*",         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmtest-onchange",     "homepage": "https://github.com/npmtest/node-npmtest-onchange",     "repository": {         "type": "git",         "url": "https://github.com/npmtest/node-npmtest-onchange.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "test coverage for [onchange (v3.2.1)](https://github.com/Qard/onchange) [![npm package](https://img.shields.io/npm/v/npmtest-onchange.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-onchange) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-onchange.svg)](https://travis-ci.org/npmtest/node-npmtest-onchange)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "onchange": "*",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmtest/node-npmtest-onchange",
+    "keywords": [
+        "coverage",
+        "test",
+        "onchange"
+    ],
+    "license": "MIT",
+    "main": "lib.npmtest_onchange.js",
+    "name": "npmtest-onchange",
+    "nameAlias": "npmtest_onchange",
+    "nameOriginal": "npmtest-onchange",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmtest/node-npmtest-onchange.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
